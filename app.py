@@ -202,33 +202,30 @@ body, p, span, label, div {
 }
 
 /* ===== SELECTBOX — TRIGGER BOX ===== */
-.stSelectbox > div > div {
+
+/* ===== STREAMLIT SELECTBOX (FIXED STABLE VERSION) ===== */
+
+/* Main select container */
+div[data-baseweb="select"] {
     background: var(--bg-card2) !important;
     border: 1px solid var(--border) !important;
     border-radius: 10px !important;
-    color: var(--text-primary) !important;
     transition: var(--transition) !important;
 }
 
-.stSelectbox > div > div:hover,
-.stSelectbox > div > div:focus-within {
+/* Hover / focus */
+div[data-baseweb="select"]:hover,
+div[data-baseweb="select"]:focus-within {
     border-color: rgba(245,166,35,0.4) !important;
     box-shadow: 0 0 0 2px rgba(245,166,35,0.1) !important;
 }
 
-/* Selected value text */
-.stSelectbox > div > div > div[data-baseweb="select"] > div,
-.stSelectbox span,
-.stSelectbox div[class*="ValueContainer"] div,
-.stSelectbox div[class*="singleValue"] {
+/* Selected text */
+div[data-baseweb="select"] span {
     color: var(--text-primary) !important;
 }
 
-/* Dropdown popup list container */
-div[data-baseweb="popover"],
-div[data-baseweb="popover"] > div,
-ul[data-baseweb="menu"],
-div[role="listbox"],
+/* Dropdown menu */
 div[data-baseweb="menu"] {
     background: #1E2736 !important;
     border: 1px solid rgba(245,166,35,0.2) !important;
@@ -237,35 +234,29 @@ div[data-baseweb="menu"] {
     padding: 4px !important;
 }
 
-/* Each dropdown option */
-li[role="option"],
-div[role="option"],
-ul[data-baseweb="menu"] li,
-div[data-baseweb="menu"] li {
+/* Options */
+div[role="option"] {
     background: transparent !important;
     color: #F1F5F9 !important;
-    border-radius: 8px !important;
     padding: 10px 14px !important;
+    border-radius: 8px !important;
     font-family: 'DM Sans', sans-serif !important;
     font-size: 14px !important;
-    transition: background 0.2s ease !important;
 }
 
-/* Hovered option */
-li[role="option"]:hover,
-div[role="option"]:hover,
-li[aria-selected="false"]:hover {
+/* Hover option */
+div[role="option"]:hover {
     background: rgba(245,166,35,0.12) !important;
     color: #F5A623 !important;
 }
 
-/* Selected/active option */
-li[aria-selected="true"],
+/* Selected option */
 div[aria-selected="true"] {
     background: rgba(245,166,35,0.18) !important;
     color: #F5A623 !important;
     font-weight: 600 !important;
 }
+
 
 /* ===== NUMBER INPUT ===== */
 .stNumberInput > div > div > input {
