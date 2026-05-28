@@ -203,10 +203,12 @@ body, p, span, label, div {
 
 /* ===== SELECTBOX — TRIGGER BOX ===== */
 
-/* ===== STREAMLIT SELECTBOX FINAL FIX (STABLE + HIGH SPECIFICITY) ===== */
+/* ============================= */
+/* STREAMLIT SELECTBOX FIX FINAL */
+/* ============================= */
 
-/* Select container */
-.stSelectbox div[data-baseweb="select"] > div {
+/* Trigger box */
+div[data-baseweb="select"] {
     background: var(--bg-card2) !important;
     border: 1px solid var(--border) !important;
     border-radius: 10px !important;
@@ -214,48 +216,65 @@ body, p, span, label, div {
 }
 
 /* Hover / focus */
-.stSelectbox div[data-baseweb="select"] > div:hover,
-.stSelectbox div[data-baseweb="select"] > div:focus-within {
+div[data-baseweb="select"]:hover,
+div[data-baseweb="select"]:focus-within {
     border-color: rgba(245,166,35,0.4) !important;
     box-shadow: 0 0 0 2px rgba(245,166,35,0.1) !important;
 }
 
 /* Selected text */
-.stSelectbox span {
+div[data-baseweb="select"] span {
     color: var(--text-primary) !important;
 }
 
-/* DROPDOWN ROOT (IMPORTANT FIX) */
-div[data-baseweb="popover"],
-div[data-baseweb="menu"],
-ul[role="listbox"] {
+/* ============================= */
+/* DROPDOWN MENU FIX (IMPORTANT) */
+/* ============================= */
+
+/* Popup container */
+div[data-baseweb="popover"] {
+    z-index: 9999 !important;
+}
+
+/* Menu container */
+div[data-baseweb="menu"] {
     background: #1E2736 !important;
     border: 1px solid rgba(245,166,35,0.2) !important;
     border-radius: 12px !important;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.55) !important;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.6) !important;
     padding: 6px !important;
 }
 
-/* OPTION (MOST IMPORTANT FIX) */
-div[role="option"],
-li[role="option"] {
+/* UL reset */
+div[data-baseweb="menu"] ul {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* OPTION FIX (MOST IMPORTANT PART) */
+div[data-baseweb="menu"] li {
+    list-style: none !important;
+}
+
+/* actual option content */
+div[data-baseweb="menu"] li > div {
+    background: transparent !important;
     color: #F1F5F9 !important;
     padding: 10px 14px !important;
     border-radius: 8px !important;
+    font-family: 'DM Sans', sans-serif !important;
     font-size: 14px !important;
-    transition: all 0.2s ease !important;
+    transition: 0.2s ease !important;
 }
 
-/* Hover state */
-div[role="option"]:hover,
-li[role="option"]:hover {
+/* hover */
+div[data-baseweb="menu"] li:hover > div {
     background: rgba(245,166,35,0.12) !important;
     color: #F5A623 !important;
 }
 
-/* Selected state */
-div[aria-selected="true"],
-li[aria-selected="true"] {
+/* selected */
+div[data-baseweb="menu"] li[aria-selected="true"] > div {
     background: rgba(245,166,35,0.18) !important;
     color: #F5A623 !important;
     font-weight: 600 !important;
