@@ -5,7 +5,7 @@ A machine learning web application built using **Streamlit** that predicts real 
 ---
 
 ## 🚀 Live App
-(Add your deployed link here after deployment)
+
 
 
 
