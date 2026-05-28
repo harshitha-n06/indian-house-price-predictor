@@ -203,9 +203,9 @@ body, p, span, label, div {
 
 /* ===== SELECTBOX — TRIGGER BOX ===== */
 
-/* ============================= */
-/* STREAMLIT SELECTBOX FIX FINAL */
-/* ============================= */
+/* =============================== */
+/* STREAMLIT SELECTBOX FINAL FIX  */
+/* =============================== */
 
 /* Trigger box */
 div[data-baseweb="select"] {
@@ -215,66 +215,63 @@ div[data-baseweb="select"] {
     transition: var(--transition) !important;
 }
 
-/* Hover / focus */
+/* Selected text */
+div[data-baseweb="select"] span {
+    color: var(--text-primary) !important;
+}
+
+/* Focus / hover */
 div[data-baseweb="select"]:hover,
 div[data-baseweb="select"]:focus-within {
     border-color: rgba(245,166,35,0.4) !important;
     box-shadow: 0 0 0 2px rgba(245,166,35,0.1) !important;
 }
 
-/* Selected text */
-div[data-baseweb="select"] span {
-    color: var(--text-primary) !important;
+/* =============================== */
+/* 🔥 PORTAL DROPDOWN FIX (CRITICAL) */
+/* =============================== */
+
+/* This is the REAL dropdown container (portal) */
+
+
+[data-baseweb="popover"] {
+    z-index: 10000 !important;
 }
 
-/* ============================= */
-/* DROPDOWN MENU FIX (IMPORTANT) */
-/* ============================= */
+/* Actual dropdown menu */
 
-/* Popup container */
-div[data-baseweb="popover"] {
-    z-index: 9999 !important;
-}
-
-/* Menu container */
-div[data-baseweb="menu"] {
+div[role="listbox"] {
     background: #1E2736 !important;
-    border: 1px solid rgba(245,166,35,0.2) !important;
+}
+
+/* BaseWeb menu wrapper */
+div[role="listbox"] {
+    background: #1E2736 !important;
+    border: 1px solid rgba(245,166,35,0.25) !important;
     border-radius: 12px !important;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.6) !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6) !important;
     padding: 6px !important;
+    z-index: 99999 !important;
 }
 
-/* UL reset */
-div[data-baseweb="menu"] ul {
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-/* OPTION FIX (MOST IMPORTANT PART) */
-div[data-baseweb="menu"] li {
-    list-style: none !important;
-}
-
-/* actual option content */
-div[data-baseweb="menu"] li > div {
+/* Each option (IMPORTANT NEW TARGET) */
+div[role="option"] {
     background: transparent !important;
     color: #F1F5F9 !important;
     padding: 10px 14px !important;
     border-radius: 8px !important;
     font-family: 'DM Sans', sans-serif !important;
     font-size: 14px !important;
-    transition: 0.2s ease !important;
 }
 
-/* hover */
-div[data-baseweb="menu"] li:hover > div {
+/* Hover */
+div[role="option"]:hover {
     background: rgba(245,166,35,0.12) !important;
     color: #F5A623 !important;
 }
 
-/* selected */
-div[data-baseweb="menu"] li[aria-selected="true"] > div {
+/* Selected */
+div[aria-selected="true"] {
     background: rgba(245,166,35,0.18) !important;
     color: #F5A623 !important;
     font-weight: 600 !important;
