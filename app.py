@@ -202,75 +202,65 @@ body, p, span, label, div {
 }
 
 /* ===== SELECTBOX — TRIGGER BOX ===== */
-
-/* =============================== */
-/* STREAMLIT SELECTBOX FINAL FIX  */
-/* =============================== */
-
-/* Trigger box */
-div[data-baseweb="select"] {
+.stSelectbox > div > div {
     background: var(--bg-card2) !important;
     border: 1px solid var(--border) !important;
     border-radius: 10px !important;
+    color: var(--text-primary) !important;
     transition: var(--transition) !important;
 }
 
-/* Selected text */
-div[data-baseweb="select"] span {
-    color: var(--text-primary) !important;
-}
-
-/* Focus / hover */
-div[data-baseweb="select"]:hover,
-div[data-baseweb="select"]:focus-within {
+.stSelectbox > div > div:hover,
+.stSelectbox > div > div:focus-within {
     border-color: rgba(245,166,35,0.4) !important;
     box-shadow: 0 0 0 2px rgba(245,166,35,0.1) !important;
 }
 
-/* =============================== */
-/* 🔥 PORTAL DROPDOWN FIX (CRITICAL) */
-/* =============================== */
-
-/* This is the REAL dropdown container (portal) */
-
-
-[data-baseweb="popover"] {
-    z-index: 10000 !important;
+/* Selected value text */
+.stSelectbox > div > div > div[data-baseweb="select"] > div,
+.stSelectbox span,
+.stSelectbox div[class*="ValueContainer"] div,
+.stSelectbox div[class*="singleValue"] {
+    color: var(--text-primary) !important;
 }
 
-/* Actual dropdown menu */
-
-div[role="listbox"] {
+/* Dropdown popup list container */
+div[data-baseweb="popover"],
+div[data-baseweb="popover"] > div,
+ul[data-baseweb="menu"],
+div[role="listbox"],
+div[data-baseweb="menu"] {
     background: #1E2736 !important;
-}
-
-/* BaseWeb menu wrapper */
-div[role="listbox"] {
-    background: #1E2736 !important;
-    border: 1px solid rgba(245,166,35,0.25) !important;
+    border: 1px solid rgba(245,166,35,0.2) !important;
     border-radius: 12px !important;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6) !important;
-    padding: 6px !important;
-    z-index: 99999 !important;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5) !important;
+    padding: 4px !important;
 }
 
-/* Each option (IMPORTANT NEW TARGET) */
-div[role="option"] {
+/* Each dropdown option */
+li[role="option"],
+div[role="option"],
+ul[data-baseweb="menu"] li,
+div[data-baseweb="menu"] li {
     background: transparent !important;
     color: #F1F5F9 !important;
-    padding: 10px 14px !important;
     border-radius: 8px !important;
+    padding: 10px 14px !important;
     font-family: 'DM Sans', sans-serif !important;
     font-size: 14px !important;
+    transition: background 0.2s ease !important;
 }
 
-/* Hover */
-div[role="option"]:hover {
+/* Hovered option */
+li[role="option"]:hover,
+div[role="option"]:hover,
+li[aria-selected="false"]:hover {
     background: rgba(245,166,35,0.12) !important;
     color: #F5A623 !important;
 }
 
-/* Selected */
+/* Selected/active option */
+li[aria-selected="true"],
 div[aria-selected="true"] {
     background: rgba(245,166,35,0.18) !important;
     color: #F5A623 !important;
