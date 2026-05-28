@@ -203,10 +203,10 @@ body, p, span, label, div {
 
 /* ===== SELECTBOX — TRIGGER BOX ===== */
 
-/* ===== STREAMLIT SELECTBOX (FIXED STABLE VERSION) ===== */
+/* ===== STREAMLIT SELECTBOX FINAL FIX (STABLE + HIGH SPECIFICITY) ===== */
 
-/* Main select container */
-div[data-baseweb="select"] {
+/* Select container */
+.stSelectbox div[data-baseweb="select"] > div {
     background: var(--bg-card2) !important;
     border: 1px solid var(--border) !important;
     border-radius: 10px !important;
@@ -214,49 +214,52 @@ div[data-baseweb="select"] {
 }
 
 /* Hover / focus */
-div[data-baseweb="select"]:hover,
-div[data-baseweb="select"]:focus-within {
+.stSelectbox div[data-baseweb="select"] > div:hover,
+.stSelectbox div[data-baseweb="select"] > div:focus-within {
     border-color: rgba(245,166,35,0.4) !important;
     box-shadow: 0 0 0 2px rgba(245,166,35,0.1) !important;
 }
 
 /* Selected text */
-div[data-baseweb="select"] span {
+.stSelectbox span {
     color: var(--text-primary) !important;
 }
 
-/* Dropdown menu */
-div[data-baseweb="menu"] {
+/* DROPDOWN ROOT (IMPORTANT FIX) */
+div[data-baseweb="popover"],
+div[data-baseweb="menu"],
+ul[role="listbox"] {
     background: #1E2736 !important;
     border: 1px solid rgba(245,166,35,0.2) !important;
     border-radius: 12px !important;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.5) !important;
-    padding: 4px !important;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.55) !important;
+    padding: 6px !important;
 }
 
-/* Options */
-div[role="option"] {
-    background: transparent !important;
+/* OPTION (MOST IMPORTANT FIX) */
+div[role="option"],
+li[role="option"] {
     color: #F1F5F9 !important;
     padding: 10px 14px !important;
     border-radius: 8px !important;
-    font-family: 'DM Sans', sans-serif !important;
     font-size: 14px !important;
+    transition: all 0.2s ease !important;
 }
 
-/* Hover option */
-div[role="option"]:hover {
+/* Hover state */
+div[role="option"]:hover,
+li[role="option"]:hover {
     background: rgba(245,166,35,0.12) !important;
     color: #F5A623 !important;
 }
 
-/* Selected option */
-div[aria-selected="true"] {
+/* Selected state */
+div[aria-selected="true"],
+li[aria-selected="true"] {
     background: rgba(245,166,35,0.18) !important;
     color: #F5A623 !important;
     font-weight: 600 !important;
 }
-
 
 /* ===== NUMBER INPUT ===== */
 .stNumberInput > div > div > input {
