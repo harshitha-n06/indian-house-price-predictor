@@ -201,7 +201,7 @@ body, p, span, label, div {
     text-transform: uppercase !important;
 }
 
-/* ===== SELECTBOX ===== */
+/* ===== SELECTBOX — TRIGGER BOX ===== */
 .stSelectbox > div > div {
     background: var(--bg-card2) !important;
     border: 1px solid var(--border) !important;
@@ -214,6 +214,57 @@ body, p, span, label, div {
 .stSelectbox > div > div:focus-within {
     border-color: rgba(245,166,35,0.4) !important;
     box-shadow: 0 0 0 2px rgba(245,166,35,0.1) !important;
+}
+
+/* Selected value text */
+.stSelectbox > div > div > div[data-baseweb="select"] > div,
+.stSelectbox span,
+.stSelectbox div[class*="ValueContainer"] div,
+.stSelectbox div[class*="singleValue"] {
+    color: var(--text-primary) !important;
+}
+
+/* Dropdown popup list container */
+div[data-baseweb="popover"],
+div[data-baseweb="popover"] > div,
+ul[data-baseweb="menu"],
+div[role="listbox"],
+div[data-baseweb="menu"] {
+    background: #1E2736 !important;
+    border: 1px solid rgba(245,166,35,0.2) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5) !important;
+    padding: 4px !important;
+}
+
+/* Each dropdown option */
+li[role="option"],
+div[role="option"],
+ul[data-baseweb="menu"] li,
+div[data-baseweb="menu"] li {
+    background: transparent !important;
+    color: #F1F5F9 !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 14px !important;
+    transition: background 0.2s ease !important;
+}
+
+/* Hovered option */
+li[role="option"]:hover,
+div[role="option"]:hover,
+li[aria-selected="false"]:hover {
+    background: rgba(245,166,35,0.12) !important;
+    color: #F5A623 !important;
+}
+
+/* Selected/active option */
+li[aria-selected="true"],
+div[aria-selected="true"] {
+    background: rgba(245,166,35,0.18) !important;
+    color: #F5A623 !important;
+    font-weight: 600 !important;
 }
 
 /* ===== NUMBER INPUT ===== */
